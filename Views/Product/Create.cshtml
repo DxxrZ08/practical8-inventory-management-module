@@ -1,0 +1,61 @@
+@model inventory_management_module.Models.Product
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Add New Product</title>
+    <style>
+        * { box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #f4f1ea; margin: 0; color: #2b2b2b; }
+        .header { background: #2f3e46; color: #fff; padding: 16px 32px; }
+        .header h4 { margin: 0; font-family: Cambria, serif; font-weight: 500; line-height: 1.6; }
+        .container { max-width: 480px; margin: 28px auto; padding: 0 16px; }
+        .card { background: #fff; border-radius: 10px; padding: 28px; box-shadow: 0 2px 10px rgba(0,0,0,.08); }
+        h2 { margin-top: 0; }
+        label { display: block; font-weight: 600; margin: 16px 0 6px; }
+        .form-control { width: 100%; padding: 10px 12px; border: 1px solid #ccc; border-radius: 6px; font-size: 15px; font-family: inherit; }
+        .form-control:focus { outline: none; border-color: #2a9d8f; box-shadow: 0 0 0 3px rgba(42,157,143,.2); }
+        .btn { display: inline-block; padding: 10px 18px; border-radius: 6px; border: none; font-size: 15px; cursor: pointer; text-decoration: none; font-family: inherit; }
+        .btn-primary { background: #2a9d8f; color: #fff; }
+        .btn-primary:hover { background: #21867a; }
+        .btn-secondary { background: #e0e0e0; color: #333; }
+        .btn-secondary:hover { background: #d0d0d0; }
+        .buttons { margin-top: 24px; display: flex; gap: 10px; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h4>
+            Name: Daxrajsinh Zala <br />
+            Enrolment No: 92400120444
+        </h4>
+    </div>
+
+    <div class="container">
+        <div class="card">
+            <h2>Add New Product</h2>
+
+            @using (Html.BeginForm())
+            {
+                <label for="ProductName">Product Name</label>
+                @Html.TextBoxFor(m => m.ProductName, new { @class = "form-control", placeholder = "e.g. Wireless Mouse", required = "required", maxlength = 100, autofocus = "autofocus" })
+
+                <label for="Quantity">Quantity</label>
+                @Html.TextBoxFor(m => m.Quantity, new { @class = "form-control", type = "number", min = "0", placeholder = "0", required = "required" })
+
+                <label for="Price">Price</label>
+                @Html.TextBoxFor(m => m.Price, new { @class = "form-control", type = "number", min = "0", step = "0.01", placeholder = "0.00", required = "required" })
+
+                <div class="buttons">
+                    <input type="submit" value="Save Product" class="btn btn-primary" />
+                    @Html.ActionLink("Cancel", "Index", null, new { @class = "btn btn-secondary" })
+                </div>
+            }
+        </div>
+    </div>
+</body>
+</html>
