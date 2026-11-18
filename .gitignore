@@ -1,0 +1,15 @@
+# Visual Studio user settings
+.vs/
+*.user
+*.suo
+
+# Build output
+[Bb]in/
+[Oo]bj/
+
+# NuGet packages restored locally
+packages/
+
+# Temporary files
+*.tmp
+*.log
